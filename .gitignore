@@ -4,6 +4,8 @@
 *.so
 *.pkl
 *.txt
+# Exception for requirements.txt
+!requirements.txt
 *.egg-info/
 build/
 dist/

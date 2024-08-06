@@ -88,18 +88,6 @@ python models/sinewave.py
 
   This is almost always innocuous and can be safely ignored.
 
-## Acknowledgments
-
-This code would not be possible without
-
-* On the difficulty of training recurrent neural networks.                                         
-  R. Pascanu, T. Mikolov, & Y. Bengio, ICML 2013.                                                  
-  https://github.com/pascanur/trainingRNNs
-
-## License
-
-MIT
-
 ## Citation
 
 This code is the product of work carried out in the group of [Xiao-Jing Wang at New York University](http://www.cns.nyu.edu/wanglab/). If you find our code helpful to your work, consider giving us a shout-out in your publications:

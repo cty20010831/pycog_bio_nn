@@ -16,6 +16,27 @@ Optional but recommended for analysis and visualization of the networks (includi
 
 The code uses (but doesn't require) one function from the [NetworkX](https://networkx.github.io/) package to check if the recurrent weight matrix is connected (every unit is reachable by every other unit), which is useful if you plan to train very sparse connection matrices.
 
+## Setting up virtual environment
+The first step is to install [python 2.7](https://www.python.org/downloads/release/python-2718/) and then locate the Python 2.7 executable on your system:
+```
+which python2.7
+```
+
+Then, install `virtualenv` using Python 2.7:
+```
+/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7 -m pip install virtualenv
+```
+
+Next, create the virtual environment (named **pycog_venv**) using the correct `virtualenv`:
+```
+/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7 -m virtualenv -p /Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7 pycog_venv
+```
+
+Finally, activate the virtual environment:
+```
+source pycog_venv/bin/activate
+```
+
 ## Installation
 
 Because you will eventually want to modify the `pycog` source files, we recommend that you "install" by simply adding the `pycog` directory to your `$PYTHONPATH`, and building the Cython extension to (slightly) speed up Euler integration for testing the networks by typing

@@ -21,6 +21,7 @@ The first step is to install [python 2.7](https://www.python.org/downloads/relea
 ```
 which python2.7
 ```
+Note: `/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7` is where my Python 2.7 executable is located, which will be used in later virtual environment creation. 
 
 Then, install `virtualenv` using Python 2.7:
 ```
@@ -51,21 +52,78 @@ You can also perform a "standard" installation by going to the `pycog` directory
 python setup.py install
 ```
 
+To add the `pycog` directory to your `$PYTHONPATH`:
+```
+export PYTHONPATH="/path/to/pycog:$PYTHONPATH"
+
+source ~/.bashrc
+```
+
 ## Examples
 
 Example task specifications, including those used to generate the figures in the paper, can be found in `examples/models`.
 
 Training and testing networks involves some boring logistics, especially regarding file paths. You may find the script `examples/do.py` helpful as you start working with your own networks. For instance, to train a new network we can just type (from the `examples` directory)
+```
+cd examples
+```
 
-```
-python do.py models/sinewave train
-```
+### sinewave
 
 For this particular example we've also directly included code for training and plotting the result, so you can simply type
 
 ```
 python models/sinewave.py
 ```
+
+For the normal workflow, 
+
+- train the model:
+```
+python do.py models/sinewave train
+```
+
+- analyze the resting state model: 
+```
+python do.py models/sinewave restingstate
+```
+
+- plot cost history:
+```
+python do.py models/sinewave costs
+```
+
+- clean files in the temporary `work` directory:
+```
+python do.py models/sinewave clean
+```
+
+### lee 
+- train the model:
+```
+python do.py models/lee train
+```
+
+- analyze the resting state model: 
+```
+python do.py models/lee restingstate
+```
+
+- plot cost history:
+```
+python do.py models/lee costs
+```
+
+- run analysis on variants of the Lee sequence generation task
+```
+python do.py models/lee analysis/lee trials 100
+```
+
+- clean files in the temporary `work` directory:
+```
+python do.py models/lee clean
+```
+
 
 ## Notes
 

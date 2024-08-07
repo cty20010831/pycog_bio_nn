@@ -52,13 +52,6 @@ You can also perform a "standard" installation by going to the `pycog` directory
 python setup.py install
 ```
 
-To add the `pycog` directory to your `$PYTHONPATH`:
-```
-export PYTHONPATH="/path/to/pycog:$PYTHONPATH"
-
-source ~/.bashrc
-```
-
 ## Examples
 
 Example task specifications, including those used to generate the figures in the paper, can be found in `examples/models`.
@@ -116,7 +109,12 @@ python do.py models/lee costs
 
 - run analysis on variants of the Lee sequence generation task
 ```
-python do.py models/lee analysis/lee trials 100
+# Define SCRATCH as Environmental Variable for saving scratch files
+export SCRATCH=/Users/samcong/Library/CloudStorage/OneDrive-TheUniversityofChicago/Summer_2024/pycog_bio_nn/exampl
+es/scratch
+
+# Run the analysis
+python do.py models/lee analysis/lee trials 10
 ```
 
 - clean files in the temporary `work` directory:

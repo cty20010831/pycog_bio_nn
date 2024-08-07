@@ -112,6 +112,7 @@ if action == 'check':
 #=========================================================================================
 
 elif action == 'clean':
+    print("Cleaning up...")
     from glob import glob
 
     # Data files
@@ -127,6 +128,19 @@ elif action == 'clean':
         shutil.rmtree(fname)
         print("Removed {}".format(fname))
 
+    # Remove data and figs directories under work
+    if os.path.exists(datapath):
+        shutil.rmtree(datapath)
+        print("Removed directory {}".format(datapath))
+    else:
+        print("Directory does not exist: {}".format(datapath))
+
+    if os.path.exists(figspath):
+        shutil.rmtree(figspath)
+        print("Removed directory {}".format(figspath))
+    else:
+        print("Directory does not exist: {}".format(figspath))
+        
 #=========================================================================================
 # Submit a job
 #=========================================================================================

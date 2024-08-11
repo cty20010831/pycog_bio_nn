@@ -1,8 +1,19 @@
-# Train excitatory-inhibitory recurrent neural networks for cognitive tasks
+# Excitatory-inhibitory recurrent neural networks for Delayed Match to Sample (DMS) Task
 
-## Requirements
+This forked repository is used to train an excitatory-inhibitory RNN for DMS task (see this [paper](https://www.sciencedirect.com/science/article/pii/S0896627320300611) for task instruction).
 
-This code is written in Python 2.7 and requires
+## Forked Repository
+This project builds on the (single recurrent layer) excitatory-inhibitory RNN developed by Song et al. (2016), which allows specification of proportion of excitatory and inhibitory neurons (following Dale's Principle) and of connection of neurons within the recurrent layer. 
+
+### Citation
+
+This code is the product of work carried out in the group of [Xiao-Jing Wang at New York University](http://www.cns.nyu.edu/wanglab/):
+
+* Song, H. F.\*, Yang, G. R.\*, & Wang, X.-J. "Training Excitatory-Inhibitory Recurrent Neural Networks for Cognitive Tasks: A Simple and Flexible Framework." *PLoS Comp. Bio.* 12, e1004792 (2016). (\* = equal contribution) 
+
+### Requirements
+
+The code is written in Python 2.7 and requires
 
 * [Theano 0.7](http://deeplearning.net/software/theano/)
 
@@ -16,7 +27,7 @@ Optional but recommended for analysis and visualization of the networks (includi
 
 The code uses (but doesn't require) one function from the [NetworkX](https://networkx.github.io/) package to check if the recurrent weight matrix is connected (every unit is reachable by every other unit), which is useful if you plan to train very sparse connection matrices.
 
-## Setting up virtual environment
+### Setting up virtual environment
 The first step is to install [python 2.7](https://www.python.org/downloads/release/python-2718/) and then locate the Python 2.7 executable on your system:
 ```
 which python2.7
@@ -38,7 +49,7 @@ Finally, activate the virtual environment:
 source pycog_venv/bin/activate
 ```
 
-## Installation
+### Installation
 
 Because you will eventually want to modify the `pycog` source files, we recommend that you "install" by simply adding the `pycog` directory to your `$PYTHONPATH`, and building the Cython extension to (slightly) speed up Euler integration for testing the networks by typing
 
@@ -52,7 +63,7 @@ You can also perform a "standard" installation by going to the `pycog` directory
 python setup.py install
 ```
 
-## Examples
+### Examples
 
 Example task specifications, including those used to generate the figures in the paper, can be found in `examples/models`.
 
@@ -61,7 +72,7 @@ Training and testing networks involves some boring logistics, especially regardi
 cd examples
 ```
 
-### sinewave
+#### sinewave
 
 For this particular example we've also directly included code for training and plotting the result, so you can simply type
 
@@ -91,7 +102,7 @@ python do.py models/sinewave costs
 python do.py models/sinewave clean
 ```
 
-### lee 
+#### lee 
 - train the model:
 ```
 python do.py models/lee train
@@ -114,7 +125,7 @@ export SCRATCH=/Users/samcong/Library/CloudStorage/OneDrive-TheUniversityofChica
 es/scratch
 
 # Run the analysis
-python do.py models/lee analysis/lee trials 10
+python do.py models/lee run analysis/lee trials 10
 ```
 
 - clean files in the temporary `work` directory:
@@ -123,7 +134,7 @@ python do.py models/lee clean
 ```
 
 
-## Notes
+### Notes
 
 * The default recurrent noise level (used for most of the tasks in our paper) is rather high. When training a new task start with a value of `var_rec` that is small, then increase the noise for more robust solutions.
 
@@ -144,8 +155,6 @@ python do.py models/lee clean
 
   This is almost always innocuous and can be safely ignored.
 
-## Citation
 
-This code is the product of work carried out in the group of [Xiao-Jing Wang at New York University](http://www.cns.nyu.edu/wanglab/). If you find our code helpful to your work, consider giving us a shout-out in your publications:
-
-* Song, H. F.\*, Yang, G. R.\*, & Wang, X.-J. "Training Excitatory-Inhibitory Recurrent Neural Networks for Cognitive Tasks: A Simple and Flexible Framework." *PLoS Comp. Bio.* 12, e1004792 (2016). (\* = equal contribution)
+## DMS Task
+In order to utilize this excitatory-inhibitory RNN for DMS task, we need to create new `model` scripts to tailor the experimental design of DMS task. Meanwhile, we also need to modify `analysis` scripts to customize the type of analysis we want to perform upon the trained RNN model. 

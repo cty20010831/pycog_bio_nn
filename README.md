@@ -28,25 +28,21 @@ Optional but recommended for analysis and visualization of the networks (includi
 The code uses (but doesn't require) one function from the [NetworkX](https://networkx.github.io/) package to check if the recurrent weight matrix is connected (every unit is reachable by every other unit), which is useful if you plan to train very sparse connection matrices.
 
 ### Setting up virtual environment
-The first step is to install [python 2.7](https://www.python.org/downloads/release/python-2718/) and then locate the Python 2.7 executable on your system:
-```
-which python2.7
-```
-Note: `/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7` is where my Python 2.7 executable is located, which will be used in later virtual environment creation. 
+The first step is to install [python 2.7](https://www.python.org/downloads/release/python-2718/). 
 
 Then, install `virtualenv` using Python 2.7:
 ```
-/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7 -m pip install virtualenv
+python2.7 -m pip install virtualenv
 ```
 
-Next, create the virtual environment (named **pycog_venv**) using the correct `virtualenv`:
+Next, create the virtual environment (named **venv**) using the correct `virtualenv`:
 ```
-/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7 -m virtualenv -p /Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7 pycog_venv
+python2.7 -m virtualenv venv
 ```
 
 Finally, activate the virtual environment:
 ```
-source pycog_venv/bin/activate
+source venv/bin/activate
 ```
 
 ### Installation
